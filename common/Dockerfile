@@ -13,5 +13,5 @@ RUN \
 		wget curl \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
 	&& useradd -MU -s/usr/bin/zsh devel \
-	&& mkdir -pm0755 /home/devel \
+	&& install -d -odevel -gdevel -m0755 /home/devel \
 	&& echo 'devel ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
