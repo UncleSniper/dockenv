@@ -11,4 +11,4 @@ IMAGE_TAG ?= latest
 image: $(TAG)
 
 $(TAG): Dockerfile
-	$(DOCKER) -t "$(IMAGE_NS)/$(IMAGE_NAME)$(if $(IMAGE_TAG),:$(IMAGE_TAG))" . && $(TOUCH) $(TAG)
+	$(DOCKER) build -t "$(IMAGE_NS)/$(IMAGE_NAME)$(if $(IMAGE_TAG),:$(IMAGE_TAG))" $(DOCKER_BUILD_OPTS) . && $(TOUCH) $(TAG)

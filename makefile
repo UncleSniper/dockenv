@@ -8,6 +8,7 @@ include $(wildcard site.makefile)
 
 export DOCKER TAG
 export IMAGE_NS IMAGE_TAG
+export DOCKER_BUILD_OPTS
 
 .PHONY: all common
 .SILENT:
