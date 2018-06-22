@@ -1,0 +1,6 @@
+#!/bin/bash
+
+SKELDIR=/etc/devskel
+DESTDIR="$HOME"
+
+cp -vu "$SKELDIR/zshrc" "$DESTDIR/.zshrc"

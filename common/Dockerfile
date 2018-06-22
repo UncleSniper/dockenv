@@ -1,6 +1,8 @@
 FROM ubuntu:latest
 ARG clearAptLists=true
 
+COPY . /
+
 RUN \
 	set -ex \
 	&& sed -i 's@^path-exclude=/usr/share/man/@#&@' /etc/dpkg/dpkg.cfg.d/excludes \
