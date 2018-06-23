@@ -12,14 +12,21 @@ export DOCKER_BUILD_OPTS
 
 .PHONY: all clean
 .PHONY: common common-clean
+.PHONY: java java-clean
 .SILENT:
 
-all: common
+all: common java
 
-clean: common-clean
+clean: common-clean java-clean
 
 common:
 	$(MAKE) -C common
 
 common-clean:
 	$(MAKE) -C common clean
+
+java:
+	$(MAKE) -C java
+
+java-clean:
+	$(MAKE) -C java clean
