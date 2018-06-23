@@ -1,3 +1,7 @@
+if [ -z "$SHELL" ]; then
+	export SHELL=/usr/bin/zsh
+fi
+
 PROMPT='%(?/%{[0m[34;1m%}%m%{[0m%}/%{[0m[31;1m%}error%{[0m%})%# '
 
 setopt autocd correct extendedglob nobeep prompt_subst

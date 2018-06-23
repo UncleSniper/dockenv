@@ -5,10 +5,13 @@ IMAGE_NS ?= usdo
 IMAGE_NAME ?= $(notdir $(abspath .))
 IMAGE_TAG ?= latest
 
-.PHONY: image
+.PHONY: image clean
 .SILENT:
 
 image: $(TAG)
+
+clean:
+	$(RM) $(TAG)
 
 $(TAG): Dockerfile
 	$(DOCKER) build -t "$(IMAGE_NS)/$(IMAGE_NAME)$(if $(IMAGE_TAG),:$(IMAGE_TAG))" $(DOCKER_BUILD_OPTS) . && $(TOUCH) $(TAG)

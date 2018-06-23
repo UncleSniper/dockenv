@@ -8,7 +8,7 @@ RUN \
 	&& sed -i 's@^path-exclude=/usr/share/man/@#&@' /etc/dpkg/dpkg.cfg.d/excludes \
 	&& apt-get update \
 	&& apt-get install -y \
-		man manpages sudo \
+		man manpages sudo gosu \
 		vim zsh make git \
 		wget curl \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
@@ -19,3 +19,7 @@ RUN \
 	&& chown -R devel:devel /home/devel \
 	&& echo 'devel ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers \
 	&& install -oroot -groot /home/devel/.zshrc /root/.zshrc \
+	&& chmod 04755 /usr/sbin/gosu
+
+ENTRYPOINT ["gosu", "devel"]
+CMD ["zsh", "--login"]

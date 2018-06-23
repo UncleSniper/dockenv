@@ -10,10 +10,16 @@ export DOCKER TAG
 export IMAGE_NS IMAGE_TAG
 export DOCKER_BUILD_OPTS
 
-.PHONY: all common
+.PHONY: all clean
+.PHONY: common common-clean
 .SILENT:
 
 all: common
 
+clean: common-clean
+
 common:
 	$(MAKE) -C common
+
+common-clean:
+	$(MAKE) -C common clean
