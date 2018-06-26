@@ -15,7 +15,7 @@ export DOCKER_BUILD_OPTS
 .PHONY: java java-clean
 .SILENT:
 
-all: common java
+all: java
 
 clean: common-clean java-clean
 
@@ -25,7 +25,7 @@ common:
 common-clean:
 	$(MAKE) -C common clean
 
-java:
+java: common
 	$(MAKE) -C java
 
 java-clean:
