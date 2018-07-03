@@ -27,7 +27,11 @@ RUN \
 		libtools-cli-clojure libtools-logging-clojure \
 		libtools-macro-clojure libtools-namespace-clojure \
 		libtools-trace-clojure libtypesafe-config-clojure \
-	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi)
+	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
+	&& curl -fsSLo /usr/bin/boot https://github.com/boot-clj/boot-bin/releases/download/latest/boot.sh \
+	&& chmod 755 /usr/bin/boot \
+	&& gosu devel boot -h \
+	&& gosu devel boot -h
 
 ENTRYPOINT ["gosu", "devel"]
 CMD ["zsh", "--login"]
