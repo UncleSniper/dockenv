@@ -5,7 +5,7 @@ RUN \
 	set -ex \
 	&& apt-get update \
 	&& apt-get install -y \
-		clisp \
+		clisp sbcl \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi)
 
 ENTRYPOINT ["gosu", "devel"]
