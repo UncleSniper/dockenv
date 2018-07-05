@@ -20,7 +20,9 @@ RUN \
 	&& echo 'devel ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers \
 	&& install -oroot -groot /home/devel/.zshrc /root/.zshrc \
 	&& chsh -s/usr/bin/zsh root \
-	&& chmod 04755 /usr/sbin/gosu
+	&& chmod 04755 /usr/sbin/gosu \
+	&& install -dm755 -odevel -gdevel /scripts \
+	&& ln -s /home/devel/vim-scripts/tools/vimant.py /scripts/vimant
 
 ENTRYPOINT ["gosu", "devel"]
 CMD ["zsh", "--login"]
