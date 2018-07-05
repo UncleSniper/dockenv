@@ -16,7 +16,9 @@ RUN \
 	&& git clone https://github.com/UncleSniper/vim-scripts.git /home/devel/vim-scripts \
 	&& /home/devel/vim-scripts/install.sh /home/devel \
 	&& rm -r /home/devel/vim-scripts/.git /home/devel/.vim/bundle/*/.git \
-	&& chown -R devel:devel /home/devel \
+	&& ln -s dev/.gitconfig /home/devel/.gitconfig \
+	&& ln -s dev/.git-credentials /home/devel/.git-credentials \
+	&& chown -Rh devel:devel /home/devel \
 	&& echo 'devel ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers \
 	&& install -oroot -groot /home/devel/.zshrc /root/.zshrc \
 	&& chsh -s/usr/bin/zsh root \
