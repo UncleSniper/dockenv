@@ -24,7 +24,8 @@ RUN \
 	&& chsh -s/usr/bin/zsh root \
 	&& chmod 04755 /usr/sbin/gosu \
 	&& ln -s /home/devel/vim-scripts/tools/vimant.py /scripts/vimant \
-	&& chown -Rh devel:devel /scripts
+	&& chown -Rh devel:devel /scripts \
+	&& ln -s python3 /usr/bin/python
 
 ENTRYPOINT ["gosu", "devel"]
 CMD ["zsh", "--login"]
