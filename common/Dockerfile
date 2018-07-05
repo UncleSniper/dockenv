@@ -10,7 +10,7 @@ RUN \
 	&& apt-get install -y \
 		man manpages sudo gosu python3 \
 		vim zsh make git \
-		wget curl \
+		wget curl unzip screen \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
 	&& useradd -MU -s/usr/bin/zsh devel \
 	&& git clone https://github.com/UncleSniper/vim-scripts.git /home/devel/vim-scripts \
