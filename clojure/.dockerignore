@@ -1,0 +1,5 @@
+.*.sw[po]
+/Dockerfile
+/makefile
+/tag
+/.dockerignore
