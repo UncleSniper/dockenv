@@ -12,7 +12,7 @@ RUN \
 		libmongodb-java libpostgresql-jdbc-java libmysql-java \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
 	&& make -C /home/devel/.vim \
-	&& chown -R devel:devel /home/devel
+	&& chown -Rh devel:devel /home/devel
 
 ENTRYPOINT ["gosu", "devel"]
 CMD ["zsh", "--login"]
