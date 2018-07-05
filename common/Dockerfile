@@ -23,8 +23,8 @@ RUN \
 	&& install -oroot -groot /home/devel/.zshrc /root/.zshrc \
 	&& chsh -s/usr/bin/zsh root \
 	&& chmod 04755 /usr/sbin/gosu \
-	&& install -dm755 -odevel -gdevel /scripts \
-	&& ln -s /home/devel/vim-scripts/tools/vimant.py /scripts/vimant
+	&& ln -s /home/devel/vim-scripts/tools/vimant.py /scripts/vimant \
+	&& chown -Rh devel:devel /scripts
 
 ENTRYPOINT ["gosu", "devel"]
 CMD ["zsh", "--login"]

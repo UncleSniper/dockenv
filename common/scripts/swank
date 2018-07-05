@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sbcl --load /usr/share/vim/vimfiles/slime/start-swank.lisp
