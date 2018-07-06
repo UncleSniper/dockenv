@@ -16,6 +16,8 @@ RUN \
 	&& git clone https://github.com/UncleSniper/vim-scripts.git /home/devel/vim-scripts \
 	&& /home/devel/vim-scripts/install.sh /home/devel \
 	&& rm -r /home/devel/vim-scripts/.git /home/devel/.vim/bundle/*/.git \
+	&& ln -s /home/devel/dev/.devlocal.vim /home/devel/.vim/devlocal.vim \
+	&& echo 'runtime devlocal.vim' >>/home/devel/.vimrc \
 	&& ln -s dev/.gitconfig /home/devel/.gitconfig \
 	&& ln -s dev/.git-credentials /home/devel/.git-credentials \
 	&& chown -Rh devel:devel /home/devel \
