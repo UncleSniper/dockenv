@@ -16,5 +16,7 @@ fi
 
 after="$(usedSpace)"
 
+set +e
+
 ((delta = before - after))
 echo "Freed up $delta MiB."
