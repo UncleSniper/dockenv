@@ -8,7 +8,9 @@ RUN \
 	&& (curl -sL https://deb.nodesource.com/setup_8.x | bash -) \
 	&& apt-get install -y \
 		nodejs build-essential \
-	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi)
+	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
+	&& npm install \
+		cli-color getopts underscore commander
 
 ENTRYPOINT ["gosu", "devel"]
 CMD ["zsh", "--login"]
