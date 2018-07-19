@@ -15,11 +15,12 @@ export DOCKER_BUILD_OPTS
 .PHONY: java java-clean
 .PHONY: clojure clojure-clean
 .PHONY: lisp lisp-clean
+.PHONY: nodejs nodejs-clean
 .SILENT:
 
-all: clojure lisp
+all: clojure lisp nodejs
 
-clean: common-clean java-clean clojure-clean lisp-clean
+clean: common-clean java-clean clojure-clean lisp-clean nodejs-clean
 
 common:
 	$(MAKE) -C common
@@ -44,3 +45,9 @@ lisp: common
 
 lisp-clean:
 	$(MAKE) -C lisp clean
+
+nodejs: common
+	$(MAKE) -C nodejs
+
+nodejs-clean:
+	$(MAKE) -C nodejs clean
