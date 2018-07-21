@@ -10,7 +10,7 @@ RUN \
 		nodejs build-essential \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
 	&& npm install \
-		cli-color getopts underscore commander window-size
+		cli-color getopts underscore commander window-size node-exceptions
 
 ENTRYPOINT ["gosu", "devel"]
 CMD ["zsh", "--login"]
