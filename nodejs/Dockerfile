@@ -9,7 +9,7 @@ RUN \
 	&& apt-get install -y \
 		nodejs build-essential \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
-	&& npm install \
+	&& npm install --global \
 		cli-color getopts underscore commander window-size node-exceptions
 
 ENTRYPOINT ["gosu", "devel"]
