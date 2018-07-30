@@ -11,6 +11,7 @@ RUN \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
 	&& npm install --global \
 		cli-color getopts underscore commander window-size node-exceptions \
+		bitset \
 	&& echo 'export NODE_PATH=/usr/lib/node_modules' >>/etc/global
 
 ENTRYPOINT ["gosu", "devel"]
