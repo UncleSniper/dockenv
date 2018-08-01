@@ -20,6 +20,7 @@ RUN \
 	&& echo 'runtime devlocal.vim' >>/home/devel/.vimrc \
 	&& ln -s dev/.gitconfig /home/devel/.gitconfig \
 	&& ln -s dev/.git-credentials /home/devel/.git-credentials \
+	&& ln -s dev/.ssh /home/devel/.ssh \
 	&& chown -Rh devel:devel /home/devel \
 	&& echo 'devel ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers \
 	&& install -oroot -groot /home/devel/.zshrc /root/.zshrc \

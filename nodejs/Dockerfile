@@ -7,12 +7,14 @@ RUN \
 	&& apt-get install -y gnupg2 \
 	&& (curl -sL https://deb.nodesource.com/setup_8.x | bash -) \
 	&& apt-get install -y \
-		nodejs build-essential \
+		nodejs build-essential apache2 \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
 	&& npm install --global \
 		cli-color getopts underscore commander window-size node-exceptions \
 		bitset mocha chai jsdoc \
-	&& echo 'export NODE_PATH=/usr/lib/node_modules' >>/etc/global
+		https://github.com/hegemonic/baseline/tarball/master \
+	&& echo 'export NODE_PATH=/usr/lib/node_modules' >>/etc/global \
+	&& ln -s /home/devel/dev/www /var/www/html/devel
 
 ENTRYPOINT ["gosu", "devel"]
 CMD ["zsh", "--login"]
