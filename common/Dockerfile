@@ -7,8 +7,8 @@ RUN \
 	set -ex \
 	&& sed -i 's@^path-exclude=/usr/share/man/@#&@' /etc/dpkg/dpkg.cfg.d/excludes \
 	&& apt-get update \
-	&& apt-get install -y \
-		man manpages sudo gosu python3 \
+	&& DEBIAN_FRONTEND=noninteractive apt-get install -y \
+		man manpages sudo gosu python3 asciidoc \
 		vim zsh make git \
 		wget curl unzip screen \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
@@ -28,7 +28,7 @@ RUN \
 	&& chmod 04755 /usr/sbin/gosu \
 	&& ln -s /home/devel/vim-scripts/tools/vimant.py /scripts/vimant \
 	&& chown -Rh devel:devel /scripts \
-	&& ln -s python3 /usr/bin/python
+	&& ln -sf python3 /usr/bin/python
 
 ENTRYPOINT ["gosu", "devel"]
 CMD ["zsh", "--login"]
