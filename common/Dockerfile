@@ -8,7 +8,7 @@ RUN \
 	&& sed -i 's@^path-exclude=/usr/share/man/@#&@' /etc/dpkg/dpkg.cfg.d/excludes \
 	&& apt-get update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get install -y \
-		man manpages sudo gosu python3 asciidoc \
+		man manpages sudo gosu python3 asciidoc source-highlight \
 		vim zsh make git \
 		wget curl unzip screen \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
