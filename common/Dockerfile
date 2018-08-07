@@ -10,7 +10,7 @@ RUN \
 	&& DEBIAN_FRONTEND=noninteractive apt-get install -y \
 		man manpages sudo gosu python3 asciidoc source-highlight \
 		vim zsh make git \
-		wget curl unzip screen \
+		wget curl unzip screen socat \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
 	&& useradd -MU -s/usr/bin/zsh devel \
 	&& git clone https://github.com/UncleSniper/vim-scripts.git /home/devel/vim-scripts \
