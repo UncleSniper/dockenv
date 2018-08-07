@@ -28,7 +28,8 @@ RUN \
 	&& chmod 04755 /usr/sbin/gosu \
 	&& ln -s /home/devel/vim-scripts/tools/vimant.py /scripts/vimant \
 	&& chown -Rh devel:devel /scripts \
-	&& ln -sf python3 /usr/bin/python
+	&& ln -sf python3 /usr/bin/python \
+	&& sed -i '1s/^.*$/&2/' /usr/bin/asciidoc
 
 ENTRYPOINT ["gosu", "devel"]
 CMD ["zsh", "--login"]
