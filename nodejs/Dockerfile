@@ -8,12 +8,13 @@ RUN \
 	&& (curl -sL https://deb.nodesource.com/setup_8.x | bash -) \
 	&& apt-get install -y \
 		nodejs build-essential apache2 \
+		libpq-dev \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
 	&& npm install --global \
 		cli-color getopts underscore commander window-size node-exceptions \
 		bitset mocha chai jsdoc \
 		https://github.com/hegemonic/baseline/tarball/master \
-		request \
+		request pg \
 	&& echo 'export NODE_PATH=/usr/lib/node_modules' >>/etc/global \
 	&& ln -s /home/devel/dev/www /var/www/html/devel
 
