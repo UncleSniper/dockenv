@@ -14,7 +14,7 @@ RUN \
 		cli-color getopts underscore commander window-size node-exceptions \
 		bitset mocha chai jsdoc \
 		https://github.com/hegemonic/baseline/tarball/master \
-		request pg \
+		request pg stream-json \
 	&& echo 'export NODE_PATH=/usr/lib/node_modules' >>/etc/global \
 	&& ln -s /home/devel/dev/www /var/www/html/devel
 
