@@ -10,6 +10,7 @@ RUN \
 		openjdk-8-jdk-headless ant \
 		ant-contrib libh2-java libldap-java junit \
 		libmongodb-java libpostgresql-jdbc-java libmysql-java \
+		build-essential \
 	&& (if $clearAptLists; then rm -r /var/lib/apt/lists/*; fi) \
 	&& make -C /home/devel/.vim \
 	&& chown -Rh devel:devel /home/devel
